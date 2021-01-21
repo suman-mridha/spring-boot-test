@@ -33,6 +33,13 @@ jacocoTestReport {
         html.enabled = true
         xml.enabled = true
     }
+    afterEvaluate {
+        //noinspection GroovyAssignabilityCheck
+        classDirectories.from = files(classDirectories.files.collect {
+            fileTree(dir: it,
+                    exclude: ['com/example/demo/**'])
+        })
+    }
     executionData(test)
 }
 jacocoTestReport.dependsOn build, test
