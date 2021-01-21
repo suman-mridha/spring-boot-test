@@ -1,0 +1,8 @@
+dist: bionic  #aka Ubuntu 18
+language: groovy
+
+jdk:
+  - oraclejdk11
+
+after_success:
+  - ./gradlew jacocoTestReport coveralls
