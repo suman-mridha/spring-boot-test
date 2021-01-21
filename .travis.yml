@@ -4,5 +4,7 @@ language: groovy
 jdk:
   - oraclejdk11
 
+script: ./gradlew clean --no-daemon && ./gradlew jacocoTestReport --no-daemon
+
 after_success:
-  - ./gradlew jacocoTestReport coveralls
+  - ./gradlew coveralls
